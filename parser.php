@@ -4,6 +4,8 @@ require 'vendor/autoload.php';
 
 use GuzzleHttp\Client;
 
+const MAX_COUNT_PARAMETERS = 13;
+
 $client = new Client();
 $response = $client->get('https://marsu.ru/sveden/education/eduChislen.php');
 $html = $response->getBody()->getContents();
@@ -21,7 +23,7 @@ $record = array();
 $records = array();
 
 foreach ($rows as $row) {
-    if ($countParameters >= 13) {
+    if ($countParameters >= MAX_COUNT_PARAMETERS) {
         $countParameters = 0;
         $record = [];
         echo '<br>';
