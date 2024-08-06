@@ -1,3 +1,2 @@
 <?php
-// require 'parser.php';
-require 'test.php';
+require 'parser.php';
