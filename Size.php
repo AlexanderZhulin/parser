@@ -1,7 +1,11 @@
 <?php
+// Численность обучающихся
+// по разным формам бюджета
 class Size
 {
+    // Всего [обучающихся]
     private int $all;
+    // Из низ иностранные граждане
     private int $foreigners;
     public function __construct() {}
 

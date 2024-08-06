@@ -5,7 +5,6 @@ require_once 'Size.php';
 
 use GuzzleHttp\Client;
 
-const MAX_COUNT_PARAMETERS = 13;
 const TEMPLATE = '//tr[@itemprop="eduChislen"]//';
 
 $client = new Client();
@@ -75,7 +74,7 @@ for ($i = 0; $i < $numbersAll->length; $i++) {
     $size['Общая численность обучающихся'] = (int)$numbersAll->textContent;
     $record['Численность обучающихся/ из них иностранных 
         граждан за счет (количество человек):'] = $size;
-    
+
     $records[] = $record;
     $record = [];
     $size = [];
