@@ -39,13 +39,6 @@ $records = array();
 $size = array();
 
 for ($i = 0; $i < $numbersAll->length; $i++) {
-    $specialization->update(
-        $eduCodes->item($i)->textContent,
-        $eduNames->item($i)->textContent,
-        $eduLevels->item($i)->textContent,
-        $eduForms->item($i)->textContent
-    );
-    $record['Направление'] = $specialization->getData();
 
     $sizeFederalBudget->update(
         $numbersBF->item($i)->textContent,
@@ -72,10 +65,16 @@ for ($i = 0; $i < $numbersAll->length; $i++) {
     $size['средств физических  и (или) юридических лиц'] = $sizeIndividualsOrLegalEntitiesBudget->getData();
 
     $size['Общая численность обучающихся'] = (int)$numbersAll->textContent;
-    $record['Численность обучающихся/ из них иностранных 
-        граждан за счет (количество человек):'] = $size;
-
-    $records[] = $record;
+    $specialization->update(
+        $eduCodes->item($i)->textContent,
+        $eduNames->item($i)->textContent,
+        $eduLevels->item($i)->textContent,
+        $eduForms->item($i)->textContent,
+        $size
+    );
+    $records[] = $specialization->getData();
     $record = [];
     $size = [];
 }
+
+var_dump($records[0]);

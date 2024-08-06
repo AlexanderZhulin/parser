@@ -10,6 +10,9 @@ class Specialization
     private string $eduLevel;
     //Формы обучения
     private  string $eduForm;
+    // Численность обучающихся
+    private array $size;
+    
 
     public function __construct() {}
 
@@ -17,12 +20,14 @@ class Specialization
         string $eduCode,
         string $eduName,
         string $eduLevel,
-        string $eduForm
+        string $eduForm,
+        array $size
     ) : void {
         $this->eduCode = $eduCode;
         $this->eduName = $eduName;
         $this->eduLevel = $eduLevel;
         $this->eduForm = $eduForm;
+        $this->size = $size;
     }
 
     public function getData() : array
@@ -34,7 +39,9 @@ class Specialization
             подготовки, наименование группы
             научных специальностей" => $this->eduName,
             "Уровень образования" => $this->eduLevel,
-            "Формы обучения"=> $this->eduForm
+            "Формы обучения"=> $this->eduForm,
+            "Численность обучающихся/ из них иностранных 
+            граждан за счет (количество человек):" => $this->size
         ];
     }
 }
