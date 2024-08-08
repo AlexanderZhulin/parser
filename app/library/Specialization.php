@@ -1,4 +1,5 @@
 <?php
+namespace App\Library;
 // Специальность, направление подготовки
 class Specialization
 {
@@ -10,38 +11,33 @@ class Specialization
     private string $eduLevel;
     //Формы обучения
     private  string $eduForm;
-    // Численность обучающихся
-    private array $size;
-    
+    // Общая численность обучающихся
+    private int $contingent;
 
     public function __construct() {}
-
+    
     public function update(
         string $eduCode,
         string $eduName,
         string $eduLevel,
         string $eduForm,
-        array $size
+        int $contingent
     ) : void {
         $this->eduCode = $eduCode;
         $this->eduName = $eduName;
         $this->eduLevel = $eduLevel;
         $this->eduForm = $eduForm;
-        $this->size = $size;
+        $this->contingent = $contingent;
     }
 
     public function getData() : array
     {
         return [
-            "Код,шифр" => $this->eduCode,
-            "Наименование профессии,
-            специальности, направления 
-            подготовки, наименование группы
-            научных специальностей" => $this->eduName,
-            "Уровень образования" => $this->eduLevel,
-            "Формы обучения"=> $this->eduForm,
-            "Численность обучающихся/ из них иностранных 
-            граждан за счет (количество человек):" => $this->size
+            "eduCode" => $this->eduCode,
+            "eduName" => $this->eduName,
+            "eduLevel" => $this->eduLevel,
+            "edoForms"=> $this->eduForm,
+            "contingent" => $this->contingent
         ];
     }
 }
